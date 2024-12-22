@@ -1,4 +1,4 @@
-﻿import pandas as pd
+import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import sqlite3
@@ -72,7 +72,7 @@ plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
 plt.show()
 
-# Визуализация 3: Максимальные выбросы CO2 по годам
+# Визуализация 2.1: Максимальные выбросы CO2 по годам
 plt.figure(figsize=(12, 6))
 plt.plot(insight_2_1['Year'], insight_2_1['Max_CO2_Emissions'])
 plt.xlabel('Год')
@@ -81,6 +81,16 @@ plt.title('Максимальные выбросы CO2 по годам')
 plt.grid(True)
 plt.tight_layout()
 plt.show()
+
+# Визуализация 3: Минимальное значение интенсивности CO2 по регионам
+plt.figure(figsize=(20,6))
+sns.barplot(x='CountryLong', y='Min_CO2_Intensity', data=insight_3)
+plt.title('Минимальная интенсивность CO2 по регионам')
+plt.xlabel('Регион')
+plt.ylabel('Интенсивность CO2 (граммы на киловатт-час)')
+plt.xticks(rotation=45)
+plt.show()
+
 
 # Визуализация 4: Изменение выбросов CO2 от года к году
 plt.figure(figsize=(15, 7))
@@ -234,6 +244,10 @@ if __name__ == "__main__":
             file.write(html)
             
     conn.close()
+
+
+
+
 
 
 
